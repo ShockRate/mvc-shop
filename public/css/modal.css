@@ -1,0 +1,156 @@
+/*CSS ΥΠΕΥΘΥΝΟ ΓΙΑ ΌΛΑ ΤΑ ΑΝΟΙΓΟΜΕΝΑ ΠΑΡΑΘΥΡΑ (ΝΕΑ ΚΑΤΑΣΚΕΥΗ, ΛΕΠΤΟΜΕΡΙΕΣ ΚΑΙ ΠΕΡΒΑΖΙΑ)*/
+.modal-button{
+    text-align: center;
+}
+.modal {
+    /*left: 0;
+    top: 10;
+    width: 100%;  Full width 
+    height: 100%;
+    margin: auto;*/
+    
+}
+.modal-dialog{
+    width: 80%; 
+}
+.modal-contnent{
+    /*background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;*/
+}
+.modal-body{
+    min-height:550px; 
+    max-height: calc(100vh - 210px);    
+    overflow-y:auto;
+    
+    
+}
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+.productSidenav {
+    width: 25%;
+    position: fixed;
+    z-index: 1;
+    top: 15%;
+    left: 5%;
+    background: #eee;
+    overflow-x: hidden;
+    text-align: center;
+    max-height: 90%; 
+    /*padding: 8px 0;*/
+}
+.main-panel {
+    margin-left: 35%;   
+}
+/* ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+#modal-left-s {
+    float: left;
+    width: 50%;
+    background: white;
+   
+}
+#modal-right-s {
+    float: right;
+    width: 50%;
+    background: white;
+    
+}
+#productImage{
+    width: 50%;
+    height: 25%;
+    max-width: 120%;
+    max-height: 100%;
+}
+#productLabel {
+    font-size: 20px;
+    text-align: center;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 236px; 
+    word-wrap: break-word;
+}
+
+#productWidth {
+    font-size: 20px;
+    text-align: center;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#productHeight {
+    font-size: 20px;
+    text-align: center;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row{
+   /* width:100%;
+    background-color:silver;*/
+    position: relative;
+    display:flex;
+
+}
+
+.column {
+    /*float: left;*/
+    /*width: 33.33%;*/
+    width: 50%;
+}
+
+.product-tabs{
+    z-index: 2;
+    background-color: white;
+    position: fixed;
+    margin-top: 0%;  
+}
+.nav-tabs{
+    height: 50px;
+}
+.tab-content {
+            
+    position: absolute;
+    border: 1px solid #ccc;
+    margin-top: 5%;
+   
+}    
+
+.details-container{
+	position: relative;
+	text-align: center;
+    display: flex;
+    margin: auto;
+    }
+    
+.details-dimensions{
+    width: 25%;
+    margin-top: 10%;
+    
+}
+
+.details-image{
+    width: 50%;
+    text-align: center;
+    
+}
+
+.details-extras{
+    width: 25%;
+    margin-top: 10%;
+   
+}
+.details-text{
+    text-align: center;
+}
+#feet-width, #inches-width,#feet-height, #inches-height{
+    width: 32%;
+}
+
+#extra-parts{
+    display:none;
+    padding-left: 10%;
+}

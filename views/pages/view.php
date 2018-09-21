@@ -1,0 +1,3 @@
+<br>
+
+<?=$data['content'];?>
