@@ -1,15 +1,18 @@
 <?php
 class PagesCtrl extends Controller{
 
-    protected $loggedIn;
-
+    public function __construct($data = array()){
+        parent::__construct($data);
+        $this->model = new Page();
+       
+    }
     public function index(){
         $this->data['logged'] = false;
         $this->data['test_content'] = '<h1>Here is the default page</h1>';
+        $this->data['users'] = $this->model->getUsers();
         $this->data['router'] = App::getRouter();
         $this->data['TEST'] = '$this->model';
-        //$this->lpggedIn = TRUE;
-        //require_once ROOT.DS.'views'.DS.'index.php';
+        
         
     }
     

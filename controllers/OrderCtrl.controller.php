@@ -12,23 +12,19 @@ class OrderCtrl extends Controller{
             $this->data['order'] = $this->model->getWorksheet();
       
     }
-    public function viewCreateOrder(){
-            $this->data['order'] = $this->model = new retrieveExcel(DATA);
-    }
-
+    
     public function createOrder(){
         if ($_POST) {
-            // $_SESSION['order'] = array(
-            //     "ID"        => time(),
-            //     "Series"    => $_POST['series'], 
-            //     "Glazzing"  => $_POST['glazzing'], 
-            //     "Color"     => $_POST['color']
-        
-            // );
+            
             $this->model->newOrder($_POST);
             header('Location:'.ROOT_URL.'/order');
             exit();
         }
+    }
+    public function deleteOrder(){
+        unset($_SESSION['order']);
+        header('Location:'.ROOT_URL.'/order');
+        exit();
     }
 }
 ?>

@@ -26,4 +26,8 @@
 		}
 		?></span>
 	</div>
+	<div style="text-align: center;">
+		<!-- <button type="button" onClick="location.href='order/deleteOrder'"class="btn btn-warning" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>			 -->
+		<button type="button" class="btn btn-warning" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>
+	</div>
 </div>

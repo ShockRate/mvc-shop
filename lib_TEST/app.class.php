@@ -3,6 +3,8 @@
 class App{
 
     protected static $router;
+    protected static $db;
+
 
     /**
      * Get the value of router
@@ -11,8 +13,13 @@ class App{
     {
         return self::$router;
     }
+    public static function getConnection(){
+        return self::$db->getConn();
+    }
     public static function run($uri){
         self::$router = new Router($uri);
+        self::$db = new Db;
+
 
         $controller_class = ucfirst(self::$router->getController()).'Ctrl'; 
         $controller_method = strtolower(self::$router->getMethod_prefix().self::$router->getAction());

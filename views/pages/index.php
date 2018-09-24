@@ -10,7 +10,9 @@ print_r('Action to be called: '.$data['router']->getMethod_prefix().$data['route
 echo "Params: ";
 print_r($data['router']->getParams());
 echo DATA.' <br>';
-
+foreach ($data['users'] as $user) {
+   //print_r($user);
+}
 ?>
 <br>
 <?//$data['test_content']; ?>
