@@ -23,11 +23,14 @@
                 <li <?php echo strpos($page_title, "order")!==false ? "class='active'" : ""; ?>>
                     <a href="<?php echo BASE_URL; ?>order">New Order</a>
                 </li>
-                <li <?php echo strpos($page_title, "login")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>login/register">New User</a>
+                <?php if ($admin){ ?> 
+                    <li <?php echo strpos($page_title, "login")!==false ? "class='active'" : ""; ?>>
+                    <a href="<?php echo BASE_URL; ?>user">New User</a>
                 </li>
+                <?php } ?>
+                
                 <li <?php echo strpos($page_title, "customer")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>customer/newCustomer">New Customer</a>
+                    <a href="<?php echo BASE_URL; ?>customer">New Customer</a>
                 </li>
                 <li <?php echo $page_title=="Cart" ? "class='active'" : ""; ?> >
                     <a href="cart.php">
@@ -38,7 +41,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a><?php echo isset($_SESSION['full_name'])?$_SESSION['full_name']:'' ?></a></li>
-                <li><a href="inc/logout.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                <li><a href="<?php echo BASE_URL; ?>login/logoutuser"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>  
             <?php }else { ?>
                 

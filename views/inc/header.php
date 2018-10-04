@@ -24,9 +24,10 @@
    
  
 
-    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
     
  
 
@@ -39,3 +40,12 @@
  <?php include_once 'navigation.php'; ?>
 
 <div class="contents">
+
+<?php 
+    if (isset($_SESSION['msg'])){
+    echo $_SESSION['msg'];
+    unset($_SESSION['msg']);
+    setcookie(session_name(),'',time()-3600);
+}
+    echo isset($general_msg)?$general_msg:'';
+    ?>

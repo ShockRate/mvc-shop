@@ -17,13 +17,13 @@
       <div class="modal-body">
         <div class="row">
           <div class="productSidenav">
-            <img id="productImage" src="<?php echo ROOT_URL?>/images//2P-DA-L.jpg"> <!--Product Image-->
+            <img id="productImage" src="<?php echo ROOT_URL?>/images/2P-DA-L.jpg"> <!--Product Image-->
             <span id="productLabel" name ="productLabel"></span> <!--Product Name-->
             <div class="tab">
               <button class="tablinks" onclick="openTab(event, 'tab-meters')" id="defaultOpen">Meters</button>
               <button class="tablinks" onclick="openTab(event, 'tab-feet')">Feet</button>      
             </div>
-            <form method="post" action="index.php"><!--FORM START-->
+            <form method="post" action="<?php echo BASE_URL; ?>item/createitem"><!--FORM START-->
             <input type="hidden" name="productName" id="productName">
             <input type="text-align" name="productClass" id="productClass"> 
             <div class="formContent">

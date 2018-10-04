@@ -1,4 +1,4 @@
-
+var HOME = 'mvc-shop';
 
 function hideSection() {
     var x = document.getElementById("hideDIV");
@@ -133,7 +133,7 @@ function WhatToDo() {
     }
     //document.getElementById('productImage').src='images/'+ rImageName +'.jpg';
     document.getElementById('productLabel').innerHTML= rName;
-    document.getElementById('productImage').setAttribute("src", 'images/'+ rImageName +'.jpg');
+    document.getElementById('productImage').setAttribute("src", '/'+HOME+'/images/'+ rImageName +'.jpg');
     document.getElementById('productName').setAttribute("value", rName);
     document.getElementById('productClass').setAttribute("value", rClass);
     }
@@ -168,8 +168,9 @@ $('.deleteBtn').on('click',function(){
 $("#clearTable").click(function(){
         //$.post("inc/emptySession.php",function(data){
         //$.post(window.location.protocol + "//" + window.location.host + "/"+"order/deleteOrder",function(data){
-            window.location.href =window.location.protocol+"//"+window.location.host+window.location.pathname+"/deleteorder";
-            //alert(window.location.protocol+" "+window.location.host+" "+window.location.pathname);
+            //window.location.href =window.location.protocol+"//"+window.location.host+"/deleteorder";
+            alert(window.location.protocol+" "+window.location.host+" "+window.location.pathname);
+            //alert('ALERT MESSAGE')
         //location.reload();
     // });
         

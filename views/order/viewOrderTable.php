@@ -33,7 +33,7 @@
 				    <td><?php echo $arr['Name'];?></td>
 				    <td><?php echo $arr['Pieces'];?></td>
 				    <td><?php echo $arr['Width'].'/<br>'.$arr['Height'];?></td>
-				    <td><?php include 'views/divSills.php';?></td>
+				    <td><?php include 'divSills.php';?></td>
 				  
 				    <td class="table-cell">
 						<button class="btn myDetailsBtn">ΛΕΠΤΟΜΕΡΙΕΣ</button>
@@ -62,9 +62,9 @@
 				
 			</div>
 			<br>
-			<div style="text-align: center;">
+			<!-- <div style="text-align: center;">
 				<button type="button" class="btn btn-warning" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>			
-			</div>
+			</div> -->
 			<br>
 			<form method="post" action="inc/download.php">
 				<div style="text-align: center;">

@@ -11,7 +11,7 @@ echo "Params: ";
 print_r($data['router']->getParams());
 echo DATA.' <br>';
 foreach ($data['users'] as $user) {
-   //print_r($user);
+   print_r($user);
 }
 ?>
 <br>

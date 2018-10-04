@@ -4,8 +4,7 @@ class App{
 
     protected static $router;
     protected static $db;
-
-
+    protected static $auth;
     /**
      * Get the value of router
      */ 
@@ -17,12 +16,13 @@ class App{
         return self::$db->getConn();
     }
     public static function run($uri){
-        self::$router = new Router($uri);
+        $auth = true;
+        self::$router = new Router($uri,$auth);
         self::$db = new Db;
-
-
+    
         $controller_class = ucfirst(self::$router->getController()).'Ctrl'; 
         $controller_method = strtolower(self::$router->getMethod_prefix().self::$router->getAction());
+        
 
         //Calling controller's method
         try{
@@ -47,14 +47,21 @@ class App{
 
         $layout = self::$router->getRoute();
         $layout_view_path = VIEWS_PATH.DS.$layout.'.php';
-        $layout_view_object = new View(compact('content'), $layout_view_path);
+        $layout_view_object = new View(compact('content','auth'), $layout_view_path);
 
-        echo '$view_path: '.$view_path;
-        echo '<br>';
-        echo '$layout_view_path: '.$layout_view_path;
-        echo '<br>';
-        echo  '$layout_view_object->getPath(): '.$layout_view_object->getPath();
-        echo '<br>';
+        // echo '$controller_class: '.$controller_class;
+        // echo '<br>';
+        // echo '$controller_method: '.$controller_method;
+        // echo '<br>';
+        // echo '$view_path: '.$view_path;
+        // echo '<br>';
+        // echo '$layout_view_path: '.$layout_view_path;
+        // echo '<br>';
+        // echo  '$layout_view_object->getPath(): '.$layout_view_object->getPath();
+        // echo '<br>';
+        echo isset($_SESSION['user_id'])?'true':'false';
+        isset($_SESSION['full_name']);
+        
        
 
        

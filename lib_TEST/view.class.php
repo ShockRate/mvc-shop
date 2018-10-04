@@ -3,7 +3,6 @@ class View{
 
     protected $data;
     protected $path;
-    protected $testtext;
 
     protected static function getDefaultViewPath(){
         $router = App::getRouter();

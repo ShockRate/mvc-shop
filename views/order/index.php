@@ -1,13 +1,11 @@
+<div class='container'>
+    <button type="button" onClick="location.href='<?php echo BASE_URL; ?>order/createOrder'"class="btn btn-warning">ΝΕΑ ΠΑΡΑΓΓΕΛΙΑ</button>
+</div>
 <?php
-if (isset($_SESSION['order']) && !empty($_SESSION['order'])){
-    include_once 'viewOrderDetails.php';
-    //include_once 'viewCreateFrame.php';
-    // include_once 'viewDetails.php';
-    // include_once 'viewOrderTable.php';
-    // include_once 'viewFrameSill.php';
-} else {
-    include_once 'viewCreateOrder.php';
-
-}
-//include_once 'viewCreateOrder.php';
-?> 
+echo "<pre>";
+foreach ($data['order'] as $order) {
+    echo $order;
+    echo  '<br>';
+ }
+ echo "</pre>";
+ ?>

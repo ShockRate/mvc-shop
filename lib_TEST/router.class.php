@@ -51,7 +51,7 @@ class Router{
     }
 
     //Default constructor
-    public function __construct($uri){
+    public function __construct($uri, $authentication = FALSE){
 
         //print_r('Ok! Router was called with uri: '.$uri);
         $this->uri = urldecode(trim($uri, '/'));
@@ -63,18 +63,22 @@ class Router{
         $this->controller = Config::get('default_controller');
         $this->action = Config::get('default_action');
 
-        $uri_parts = explode('?', $this->uri);
-
-        
+        //Set route if NOT authenticated
+        if(!Auth::loggedIn()){
+        //if(!isset($_SESSION['user_id'])){ 
+            $this->controller = 'login';
+            $this->action = 'index';
+            
+        }
+            
         //Get path like /controller/action/param1/param2..../...
+        $uri_parts = explode('?', $this->uri);
         $path = $uri_parts[0];
-        
-
         $path_parts = explode('/', $path);
 
        
-        if(count($path_parts)){
-
+        if(count($path_parts) && Auth::loggedIn()){
+        //if(count($path_parts) && $authentication){
             //Remove folder name. Used during local testing
             if (current($path_parts) == 'mvc-shop'){
                 array_shift($path_parts);
