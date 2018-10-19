@@ -27,8 +27,25 @@ class OrderCtrl extends Controller{
             exit();
         }
     }
+
+    public function saveOrder(){
+
+        $this->model->save();
+        header('Location:'.ROOT_URL.'/order/createorder');
+        exit();
+    }
+
+    public function loadOrder(){
+        
+        $this->data['order'] = $this->model->load($this->params[0]);
+        header('Location:'.ROOT_URL.'/order/createorder');
+        exit();
+
+    }
+
     public function deleteOrder(){
         unset($_SESSION['order']);
+        unset($_SESSION['Cart']);
         header('Location:'.ROOT_URL.'/order');
         exit();
     }

@@ -8,13 +8,13 @@ Class Item extends Model {
 
                      //"ID"           => $item->getId(),
                      "Type"         => $safePOST['productType'],
-                     "Name"         => $safePOST['productName'],
-                     "Class"        => $safePOST['productClass'],
+                     "Name"         => (string)$safePOST['productName'],
+                     "Class"        => (string)$safePOST['productClass'],
                      "Width"        => $safePOST['width'],
                      "Height"       => $safePOST['height'],
                      "ClearWidth"   => $safePOST['width']-5,
                      "ClearHeight"  => $safePOST['height']-5,
-                     "Sills"        => "images/shifts/UDLR.png",
+                     "Sills"        => ROOT_URL."/public/images/shifts/UDLR.gif",
                      "Profile"      => "",
                      "Shutters"     => "",
                      "Slats"        => "",
@@ -42,7 +42,27 @@ Class Item extends Model {
             }
     
 
-    
+    public function setSills($safePOST){
+
+        $sillIndex = $safePOST['sillIndex']-1;
+        $sillsImageSrc = $safePOST['sillsImageSrc'];
+        $sillLeft = $safePOST['sillLeft'];
+        $sillRight = $safePOST['sillRight'];
+        $sillUp = $safePOST['sillUp'];
+        $sillDown = $safePOST['sillDown'];
+
+        $_SESSION['Cart'][$sillIndex]['Sills'] = $sillsImageSrc;
+        $_SESSION['Cart'][$sillIndex]['SillLeft'] = $sillLeft;
+        $_SESSION['Cart'][$sillIndex]['SillRight'] = $sillRight;
+        $_SESSION['Cart'][$sillIndex]['SillUp'] = $sillUp;
+        $_SESSION['Cart'][$sillIndex]['SillDown'] = $sillDown;
+        $_SESSION['Cart'][$sillIndex]['ClearWidth'] = $_SESSION['Cart'][$sillIndex]['Width'] - $sillLeft - $sillRight;
+        $_SESSION['Cart'][$sillIndex]['ClearHeight'] = $_SESSION['Cart'][$sillIndex]['Height'] - $sillUp - $sillDown;;
+
+
+        $_SESSION['index'] = 0;
+
+    }
 
     public function message(){
         return 'SUCCESSFULY CREATED';

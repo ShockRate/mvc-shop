@@ -23,6 +23,7 @@
 				  </tr>
 
 				  <?php 
+				 
 				  if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart'])){
 				
 				  foreach ($_SESSION['Cart'] as $arr) { 
@@ -31,7 +32,7 @@
 				    <td><?php echo $i++;?></td>
 				    <td></td>
 				    <td><?php echo $arr['Name'];?></td>
-				    <td><?php echo $arr['Pieces'];?></td>
+				    <td><?php echo isset($arr['Pieces'])?$arr['Pieces']:'';?></td>
 				    <td><?php echo $arr['Width'].'/<br>'.$arr['Height'];?></td>
 				    <td><?php include 'divSills.php';?></td>
 				  

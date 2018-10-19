@@ -13,7 +13,7 @@ echo '</pre>';
     
     <h2>Νεος Πελατης</h2>
     <?php echo isset($data['err']['msg'])?$data['err']['msg']:''; ?>
-    <form action="<?php echo BASE_URL;?>customer/register" method="POST">
+    <form action="<?php echo ROOT_URL;?>customer/register" method="POST">
             
         
         <div>

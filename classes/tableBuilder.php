@@ -13,6 +13,7 @@ class tableBuilder{
     if ($class == 2) {
       # code...
       $message = file_get_contents(VIEWS_PATH.DS.'order'.DS.'builder'.DS.'idxDualAction.php');
+      $message = str_replace("_root", ROOT_URL ,$message);
       $message = str_replace("_imgSrc", $type ,$message);
       $message = str_replace("_dimCase1",(string)($dimCase1),$message);
       $message = str_replace("_dimCase2",(string)($dimCase2),$message);

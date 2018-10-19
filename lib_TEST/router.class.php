@@ -65,7 +65,6 @@ class Router{
 
         //Set route if NOT authenticated
         if(!Auth::loggedIn()){
-        //if(!isset($_SESSION['user_id'])){ 
             $this->controller = 'login';
             $this->action = 'index';
             
@@ -76,12 +75,12 @@ class Router{
         $path = $uri_parts[0];
         $path_parts = explode('/', $path);
 
-       
+        //if(count($path_parts)){
         if(count($path_parts) && Auth::loggedIn()){
-        //if(count($path_parts) && $authentication){
             //Remove folder name. Used during local testing
+            //if (current($path_parts) == 'pub'){
             if (current($path_parts) == 'mvc-shop'){
-                array_shift($path_parts);
+               array_shift($path_parts);
             }
             //Get route element
             if(in_array(strtolower(current($path_parts)),array_keys($routes))){

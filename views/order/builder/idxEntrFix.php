@@ -4,7 +4,7 @@
                 
               
               <div class="img-product">
-                <img src="./images/_imgSrc.jpg" alt="_imgSrc.jpg" width="106" height="117">
+                <img src="_root/public/images/_imgSrc.jpg" alt="_imgSrc.jpg" width="106" height="117">
               </div>
               <div class="table-dim-top-right">
                   <div><span>_dimCase1</span></div>

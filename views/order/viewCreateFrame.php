@@ -25,7 +25,7 @@
             </div>
             <form method="post" action="<?php echo BASE_URL; ?>item/createitem"><!--FORM START-->
             <input type="hidden" name="productName" id="productName">
-            <input type="text-align" name="productClass" id="productClass"> 
+            <input type="text" name="productClass" id="productClass"> 
             <div class="formContent">
               <div id="tab-meters" class="tabcontent">
                 <div class="block">

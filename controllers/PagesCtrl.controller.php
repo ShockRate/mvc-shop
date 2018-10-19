@@ -28,6 +28,11 @@ class PagesCtrl extends Controller{
         }
 
     }
+    public function test(){
+        
+        //$this->model->test();
+        header('Location:'.ROOT_URL);
+    }
 }
 
 ?>

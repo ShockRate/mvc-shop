@@ -30,10 +30,18 @@ class ItemCtrl extends Controller{
         
                      
     }
+
     public function deleteItem(){
         unset($_SESSION['order']);
         header('Location:'.ROOT_URL.'/order');
         exit();
+    }
+
+    public function updateSills(){
+        if($_POST){
+            $this->model->setSills($_POST);
+        }
+       
     }
 }
 ?>

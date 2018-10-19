@@ -18,19 +18,19 @@
             
                 <!-- highlight if $page_title has 'Products' word. -->
                 <li <?php echo strpos($page_title, "pages")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>pages">Pages</a>
+                    <a href="<?php echo BASE_URL; ?>pages">Αρχική - Δοκιμές</a>
                 </li>
                 <li <?php echo strpos($page_title, "order")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>order">New Order</a>
+                    <a href="<?php echo BASE_URL; ?>order">Παραγγελεία</a>
                 </li>
                 <?php if ($admin){ ?> 
                     <li <?php echo strpos($page_title, "login")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>user">New User</a>
+                    <a href="<?php echo BASE_URL; ?>user">Χρήτες</a>
                 </li>
                 <?php } ?>
                 
                 <li <?php echo strpos($page_title, "customer")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>customer">New Customer</a>
+                    <a href="<?php echo BASE_URL; ?>customer">Πελάτες</a>
                 </li>
                 <li <?php echo $page_title=="Cart" ? "class='active'" : ""; ?> >
                     <a href="cart.php">

@@ -24,7 +24,7 @@ class LoginCtrl extends Controller{
         $this->data['err'] =  $this->model->loginUser($safePOST);
         $this->data['msg'] =  $this->model->msg();
         if(Auth::loggedIn()){
-                header('Location:'.ROOT_URL);
+                header('Location:'.BASE_URL);
                 exit();
             }
     }
@@ -32,7 +32,7 @@ class LoginCtrl extends Controller{
     public function logoutUser(){
         
             $this->model->logoutUser();
-            header('Location:'.ROOT_URL);
+            header('Location:'.BASE_URL);
             exit();
     }
     public function register(){

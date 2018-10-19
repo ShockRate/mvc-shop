@@ -16,7 +16,7 @@ spl_autoload_register(function($class_name){
         }elseif (file_exists($class_path)){
             require_once $class_path;
         }else{
-            throw new Exception('Failed to include: '.$class_name);
+            throw new Exception('Failed to include: '.$class_name.' in '.$controllers_path);
             
         }
     } catch(Exception $e){

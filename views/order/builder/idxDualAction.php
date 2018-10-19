@@ -2,7 +2,7 @@
              <div class="table-container">
             <div>                          
                 <div class="img-product">
-                  <img src="<?php echo ROOT_URL?>/images/_imgSrc.jpg" alt="_imgSrc.jpg" width="106" height="117">
+                  <img src="_root/public/images/_imgSrc.jpg" alt="_imgSrc.jpg" width="106" height="117">
                 </div>
                 <div class="table-dim-top">
                   <div><span>_dimCase1</span></div>

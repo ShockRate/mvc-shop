@@ -1,7 +1,8 @@
 <?php
 
-define('BASE_URL', 'http://localhost/mvc-shop/');
-define('ROOT_URL', substr($_SERVER['PHP_SELF'], 0, - (strlen($_SERVER['SCRIPT_FILENAME']) - strlen(ROOT))));
+
+define('ROOT_URL', substr($_SERVER['PHP_SELF'], 0, - (strlen('/public/index.php'))));
+define('BASE_URL', 'http://'.$_SERVER['SERVER_NAME'].ROOT_URL.'/');
 
 define('MYSQL', './inc/mysql_connection_link.php');
 define('HEADER', '../views/inc/header.php');  

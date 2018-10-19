@@ -49,23 +49,33 @@ class App{
         $layout_view_path = VIEWS_PATH.DS.$layout.'.php';
         $layout_view_object = new View(compact('content','auth'), $layout_view_path);
 
-        // echo '$controller_class: '.$controller_class;
-        // echo '<br>';
-        // echo '$controller_method: '.$controller_method;
-        // echo '<br>';
-        // echo '$view_path: '.$view_path;
-        // echo '<br>';
-        // echo '$layout_view_path: '.$layout_view_path;
-        // echo '<br>';
-        // echo  '$layout_view_object->getPath(): '.$layout_view_object->getPath();
-        // echo '<br>';
         echo isset($_SESSION['user_id'])?'true':'false';
         isset($_SESSION['full_name']);
         
-       
-
-       
+        // //TESTING OUTPUT. DELETE AFTER ISUUE RESOLVES
+        echo '<br>';
+        echo 'BASE_URL = '.BASE_URL;
+        echo '<br>';
+        echo 'ROOT_URL = '.ROOT_URL;
+        echo '<br>';
+        echo 'ROOT_URL MANUAL = '.substr($_SERVER['PHP_SELF'], 0, - (strlen('/public/index.php')));
+        echo '<br>';
+        echo $_SERVER['PHP_SELF'];
+        echo "<br>";
+        echo $_SERVER['SERVER_NAME'];
+        echo "<br>";
+        echo $_SERVER['HTTP_HOST'];
+        echo "<br>";
+        echo $_SERVER['HTTP_USER_AGENT'];
+        echo "<br>";
+        echo $_SERVER['SCRIPT_NAME'];
+        echo "<br>";
+        echo '<br>';
+        
+        echo ROOT;
+        //END OF OUTPUT TEST
         echo $layout_view_object->render();
+        
 
 
         

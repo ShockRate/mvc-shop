@@ -1,4 +1,4 @@
-var HOME = 'mvc-shop';
+var HOME = '/mvc-shop';
 
 function hideSection() {
     var x = document.getElementById("hideDIV");
@@ -133,7 +133,7 @@ function WhatToDo() {
     }
     //document.getElementById('productImage').src='images/'+ rImageName +'.jpg';
     document.getElementById('productLabel').innerHTML= rName;
-    document.getElementById('productImage').setAttribute("src", '/'+HOME+'/images/'+ rImageName +'.jpg');
+    document.getElementById('productImage').setAttribute("src", HOME+'/images/'+ rImageName +'.jpg');
     document.getElementById('productName').setAttribute("value", rName);
     document.getElementById('productClass').setAttribute("value", rClass);
     }
@@ -144,32 +144,29 @@ function WhatToDo() {
 $('.deleteBtn').on('click',function(){
     var index  = $(this).closest('tr').children()[0].textContent;
     var name  = $(this).closest('tr').children()[2].textContent;
-    if(confirm('ΘΕΛΕΤΕ ΣΙΓΟΥΡΑ ΝΑ ΔΙΑΓΡΑΨΕΤΕ ΤΗΝ ΚΑΤΑΣΚΕΥΗ ?'+name)){
-        $.ajax({
-            type: 'POST',
-            url: 'inc/deleteWindow.php',
-            data: { windowIndex: index  },
-            error: function() {
-                alert('Something is wrong');
-             },
-            success: function(response) {
+    alert(window.location.protocol+"//"+window.location.host+window.location.pathname);
+    // if(confirm('ΘΕΛΕΤΕ ΣΙΓΟΥΡΑ ΝΑ ΔΙΑΓΡΑΨΕΤΕ ΤΗΝ ΚΑΤΑΣΚΕΥΗ ?'+name)){
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: 'inc/deleteWindow.php',
+    //         data: { windowIndex: index  },
+    //         error: function() {
+    //             alert('Something is wrong');
+    //          },
+    //         success: function(response) {
                 
-                $("#tableEntry"+index).remove();
-                //alert("Record removed successfully");
-                //location.reload();  
-                
-            }
-        
-        });
-    }
+    //             $("#tableEntry"+index).remove();
+    //         }
+    //     });
+    // }
 });
 
 // EMPTY THE ORDER TABLE
 $("#clearTable").click(function(){
         //$.post("inc/emptySession.php",function(data){
         //$.post(window.location.protocol + "//" + window.location.host + "/"+"order/deleteOrder",function(data){
-            //window.location.href =window.location.protocol+"//"+window.location.host+"/deleteorder";
-            alert(window.location.protocol+" "+window.location.host+" "+window.location.pathname);
+            // window.location.href =window.location.protocol+"//"+window.location.host+window.location.pathname+"/deleteorder";
+            //alert(window.location.protocol+" "+window.location.host+" "+window.location.pathname);
             //alert('ALERT MESSAGE')
         //location.reload();
     // });
@@ -206,10 +203,10 @@ $('#changeSillsbutton').click(function() {
     var inputRight = $('#inputRight').val();
     var inputUp = $('#inputUp').val();
     var inputDown = $('#inputDown').val();
-
+    alert(window.location.protocol+"//\n"+window.location.host+"\n"+window.location.href +"\n"+window.location.hostname+"\n"+window.location.pathname);
     $.ajax({
         type: 'POST',
-        url: 'inc/setSills.php',
+        url: 'http://localhost/mvc-shop/item/updateSills',
         data: { sillIndex: index, 
                 sillsImageSrc: imgSourceStr, 
                 sillLeft: inputLeft,
@@ -235,37 +232,37 @@ function changePic() {
         var imgsrc;
 
         if (chkUp.checked == true && chkDown.checked == false && chkRight.checked == false && chkLeft.checked == false){
-            imgsrc = "images/shifts/U.gif";
+            imgsrc = HOME+"/images/shifts/U.gif";
         } else if (chkUp.checked == false && chkDown.checked == true && chkRight.checked == false && chkLeft.checked == false) {           
-            imgsrc = "images/shifts/D.gif";
+            imgsrc = HOME+"/images/shifts/D.gif";
         } else if (chkUp.checked == false && chkDown.checked == false && chkRight.checked == true && chkLeft.checked == false) {
-            imgsrc = "images/shifts/R.gif";
+            imgsrc = HOME+"/images/shifts/R.gif";
         } else if (chkUp.checked == false && chkDown.checked == false && chkRight.checked == false && chkLeft.checked == true) {
-            imgsrc = "images/shifts/L.gif";
+            imgsrc = HOME+"/images/shifts/L.gif";
         } else if (chkUp.checked == true && chkDown.checked == true && chkRight.checked == false && chkLeft.checked == false) {
-            imgsrc = "images/shifts/UD.gif";
+            imgsrc = HOME+"/images/shifts/UD.gif";
         } else if (chkUp.checked == false && chkDown.checked == false && chkRight.checked == true && chkLeft.checked == true) {
-            imgsrc = "images/shifts/LR.gif";
+            imgsrc = HOME+"/images/shifts/LR.gif";
         } else if (chkUp.checked == true && chkDown.checked == false && chkRight.checked == false && chkLeft.checked == true) {
-            imgsrc = "images/shifts/UL.gif";
+            imgsrc = HOME+"/images/shifts/UL.gif";
         } else if (chkUp.checked == true && chkDown.checked == false && chkRight.checked == true && chkLeft.checked == false) {
-            imgsrc = "images/shifts/UR.gif";
+            imgsrc = HOME+"/images/shifts/UR.gif";
         } else if (chkUp.checked == false && chkDown.checked == true && chkRight.checked == true && chkLeft.checked == false) {
-            imgsrc = "images/shifts/DR.gif";
+            imgsrc = HOME+"/images/shifts/DR.gif";
         } else if (chkUp.checked == false && chkDown.checked == true && chkRight.checked == false && chkLeft.checked == true) {
-            imgsrc = "images/shifts/DL.gif";
+            imgsrc = HOME+"/images/shifts/DL.gif";
         } else if (chkUp.checked == true && chkDown.checked == false && chkRight.checked == true && chkLeft.checked == true) {
-            imgsrc = "images/shifts/ULR.gif";
+            imgsrc = HOME+"/images/shifts/ULR.gif";
         } else if (chkUp.checked == false && chkDown.checked == true && chkRight.checked == true && chkLeft.checked == true) {
-            imgsrc = "images/shifts/DLR.gif";
+            imgsrc = HOME+"/images/shifts/DLR.gif";
         } else if (chkUp.checked == true && chkDown.checked == true && chkRight.checked == true && chkLeft.checked == false) {
-            imgsrc = "images/shifts/UDR.gif";
+            imgsrc = HOME+"/images/shifts/UDR.gif";
         } else if (chkUp.checked == true && chkDown.checked == true && chkRight.checked == false && chkLeft.checked == true) {
-            imgsrc = "images/shifts/UDL.gif";
+            imgsrc = HOME+"/images/shifts/UDL.gif";
         } else if (chkUp.checked == true && chkDown.checked == true && chkRight.checked == true && chkLeft.checked == true) {
-            imgsrc = "images/shifts/UDLR.gif";
+            imgsrc = HOME+"/images/shifts/UDLR.gif";
         } else {
-           imgsrc = "images/shifts/without.gif";
+           imgsrc = HOME+"/images/shifts/without.gif";
         }
         img.src = imgsrc;
         text.value = imgsrc;
@@ -301,82 +298,82 @@ function mySills(imgurl){
     var chkRight = document.getElementById("checkRight");
     var imgsrc = imgurl;
 
-    if (imgsrc == "images/shifts/U.gif"){
+    if (imgsrc == HOME+"/images/shifts/U.gif"){
        chkUp.checked = true;
        chkDown.checked = false;
        chkLeft.checked = false;
        chkRight.checked = false;         
-    } else if (imgsrc == "images/shifts/D.gif"){
+    } else if (imgsrc == HOME+"/images/shifts/D.gif"){
         chkUp.checked = false;
         chkDown.checked = true;
         chkLeft.checked = false;
         chkRight.checked = false;   
-    }else if (imgsrc == "images/shifts/L.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/L.gif"){
         chkUp.checked = false;
         chkDown.checked = false;
         chkLeft.checked = true;
         chkRight.checked = false;   
-    }else if (imgsrc == "images/shifts/R.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/R.gif"){
         chkUp.checked = false;
         chkDown.checked = false;
         chkLeft.checked = false;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/UD.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/UD.gif"){
         chkUp.checked = true;
         chkDown.checked = true;
         chkLeft.checked = false;
         chkRight.checked = false;   
-    }else if (imgsrc == "images/shifts/LR.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/LR.gif"){
         chkUp.checked = false;
         chkDown.checked = false;
         chkLeft.checked = true;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/UL.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/UL.gif"){
         chkUp.checked = true;
         chkDown.checked = false;
         chkLeft.checked = true;
         chkRight.checked = false;   
-    }else if (imgsrc == "images/shifts/UR.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/UR.gif"){
         chkUp.checked = true;
         chkDown.checked = false;
         chkLeft.checked = false;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/DL.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/DL.gif"){
         chkUp.checked = false;
         chkDown.checked = true;
         chkLeft.checked = true;
         chkRight.checked = false;   
-    }else if (imgsrc == "images/shifts/DR.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/DR.gif"){
         chkUp.checked = false;
         chkDown.checked = true;
         chkLeft.checked = false;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/UDL.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/UDL.gif"){
         chkUp.checked = true;
         chkDown.checked = true;
         chkLeft.checked = true;
         chkRight.checked = false;   
-    }else if (imgsrc == "images/shifts/UDR.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/UDR.gif"){
         chkUp.checked = true;
         chkDown.checked = true;
         chkLeft.checked = false;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/ULR.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/ULR.gif"){
         chkUp.checked = true;
         chkDown.checked = false;
         chkLeft.checked = true;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/DLR.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/DLR.gif"){
         chkUp.checked = false;
         chkDown.checked = true;
         chkLeft.checked = true;
         chkRight.checked = true;   
-    }else if (imgsrc == "images/shifts/UDLR.gif"){
+    }else if (imgsrc == HOME+"/public/images/shifts/UDLR.gif"){ 
         chkUp.checked = true;
         chkDown.checked = true;
         chkLeft.checked = true;
         chkRight.checked = true;
-    }else if (imgsrc == "images/shifts/without.gif"){
+    }else if (imgsrc == HOME+"/images/shifts/without.gif"){
         chkUp.checked = false;
         chkDown.checked = false;
         chkLeft.checked = false;
