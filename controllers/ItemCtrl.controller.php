@@ -9,13 +9,17 @@ class ItemCtrl extends Controller{
         
         
     }
+
     public function index(){
-        
+
+        if ($_POST) {
+            $this->updateDetails($_POST); 
+         }
+        $this->data['item'] = $this->model->load($this->params[0]);
     }
     
     public function createItem(){
-        if ($_POST) {
-            
+        if ($_POST) { 
             $this->model->newItem($_POST);
             header('Location:'.ROOT_URL.'/order');
             exit();
@@ -23,23 +27,25 @@ class ItemCtrl extends Controller{
     }
 
     public function newItem($safePOST){
-
         $safePOST = array_map('trim', filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING));
-        $this->data['err'] =  $this->model->newItem($safePOST);
-        
-        
-                     
+        $this->data['err'] =  $this->model->newItem($safePOST);                 
     }
 
     public function deleteItem(){
-        unset($_SESSION['order']);
-        header('Location:'.ROOT_URL.'/order');
-        exit();
+        if ($_POST) { 
+            $this->model->delete($_POST);
+        }
     }
 
+    public function updateDetails($safePOST){
+       
+        $safePOST = array_map('trim', filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING));
+        $this->data['err'] =  $this->model->updateItemDetails($safePOST);
+        
+    }
     public function updateSills(){
         if($_POST){
-            $this->model->setSills($_POST);
+            $this->model->updateItemSills($_POST);
         }
        
     }

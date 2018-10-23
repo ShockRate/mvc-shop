@@ -26,6 +26,9 @@
             <form method="post" action="<?php echo BASE_URL; ?>item/createitem"><!--FORM START-->
             <input type="hidden" name="productName" id="productName">
             <input type="text" name="productClass" id="productClass"> 
+            <br>
+            <input type="text" name="productXPanels" id="productXPanels"> 
+            <input type="text" name="productYPanels" id="productYPanels"> 
             <div class="formContent">
               <div id="tab-meters" class="tabcontent">
                 <div class="block">
@@ -89,6 +92,8 @@
                           $vartype =$data['types']->getCellVal($catName,'2',"$row");
                           $varclass=$data['types']->getCellVal($catName,'3',"$row");
                           $varname =$data['types']->getCellVal($catName,'1',"$row");
+                          $rXpanels =$data['types']->getCellVal($catName,'4',"$row");
+                          $rYpanels =$data['types']->getCellVal($catName,'5',"$row");
                           ?>
                           <label class="checkbox-inline">
                           <img src="<?php echo ROOT_URL?>/images/<?=$vartype;?>.jpg" width="85" height="94" alt="<?php echo $varname;?>"/>
@@ -99,7 +104,13 @@
                           </p>
                           <p class="hidden" name="productRadioClass"> 
                                 <?php echo $varclass;?> 
-                          </p>              
+                          </p> 
+                          <p class="hidden" name="productRadioXPanels"> 
+                                <?php echo $rXpanels;?> 
+                          </p>  
+                          <p class="hidden" name="productRadioYPanels"> 
+                                <?php echo $rYpanels;?> 
+                          </p>               
                           </label>
                       <?php }?>
                     </div> <!-- panel-body -->

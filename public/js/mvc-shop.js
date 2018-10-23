@@ -48,7 +48,7 @@ $('.myDetailsBtn').on('click',function(){
         }
     });
    
-      $("#itemDetailsModal").modal("show");
+     // $("#itemDetailsModal").modal("show");
 });
 
 
@@ -120,9 +120,14 @@ function WhatToDo() {
    var rButtons = document.getElementsByName('productType');
    var rType = document.getElementsByName('productRadioName');
    var rProductClass = document.getElementsByName('productRadioClass');
+   var rproductXpanels = document.getElementsByName('productRadioXPanels');
+   var rproductYpanels = document.getElementsByName('productRadioYPanels');
+   
    var rImageName = '';
    var rName = '';
    var rClass = '';
+   var rXpanels = '';
+   var rYpanels = '';
     for (var i = 0; i < rButtons.length; i++) {
     if (rButtons[i].checked) { 
         // alert(rButtons[i].value);
@@ -130,12 +135,17 @@ function WhatToDo() {
         rImageName = rImageName.concat(rButtons[i].value);
         rName = rName.concat(rType[i].textContent);
         rClass = rClass.concat(rProductClass[i].textContent);
+        rXpanels = rXpanels.concat(rproductXpanels[i].textContent);
+        rYpanels = rYpanels.concat(rproductYpanels[i].textContent);
     }
     //document.getElementById('productImage').src='images/'+ rImageName +'.jpg';
     document.getElementById('productLabel').innerHTML= rName;
     document.getElementById('productImage').setAttribute("src", HOME+'/images/'+ rImageName +'.jpg');
     document.getElementById('productName').setAttribute("value", rName);
     document.getElementById('productClass').setAttribute("value", rClass);
+    document.getElementById('productXPanels').setAttribute("value", rXpanels);
+    document.getElementById('productYPanels').setAttribute("value", rYpanels);
+    
     }
     
 }
@@ -145,20 +155,20 @@ $('.deleteBtn').on('click',function(){
     var index  = $(this).closest('tr').children()[0].textContent;
     var name  = $(this).closest('tr').children()[2].textContent;
     alert(window.location.protocol+"//"+window.location.host+window.location.pathname);
-    // if(confirm('ΘΕΛΕΤΕ ΣΙΓΟΥΡΑ ΝΑ ΔΙΑΓΡΑΨΕΤΕ ΤΗΝ ΚΑΤΑΣΚΕΥΗ ?'+name)){
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: 'inc/deleteWindow.php',
-    //         data: { windowIndex: index  },
-    //         error: function() {
-    //             alert('Something is wrong');
-    //          },
-    //         success: function(response) {
+    if(confirm('ΘΕΛΕΤΕ ΣΙΓΟΥΡΑ ΝΑ ΔΙΑΓΡΑΨΕΤΕ ΤΗΝ ΚΑΤΑΣΚΕΥΗ ?'+name)){
+        $.ajax({
+            type: 'POST',
+            url: window.location.protocol+"//"+window.location.host+HOME+'/item/deleteItem',
+            data: { windowIndex: index  },
+            error: function() {
+                alert('Something is wrong');
+             },
+            success: function(response) {
                 
-    //             $("#tableEntry"+index).remove();
-    //         }
-    //     });
-    // }
+                $("#tableEntry"+index).remove();
+            }
+        });
+    }
 });
 
 // EMPTY THE ORDER TABLE
@@ -203,10 +213,12 @@ $('#changeSillsbutton').click(function() {
     var inputRight = $('#inputRight').val();
     var inputUp = $('#inputUp').val();
     var inputDown = $('#inputDown').val();
-    alert(window.location.protocol+"//\n"+window.location.host+"\n"+window.location.href +"\n"+window.location.hostname+"\n"+window.location.pathname);
+    //alert(window.location.protocol+"//\n"+window.location.host+"\n"+window.location.href +"\n"+window.location.hostname+"\n"+window.location.pathname);
+    alert(window.location.protocol+"//"+window.location.host+HOME+'/item/updateSills');
     $.ajax({
         type: 'POST',
-        url: 'http://localhost/mvc-shop/item/updateSills',
+        url: window.location.protocol+"//"+window.location.host+HOME+'/item/updateSills',
+        //url: 'http://localhost/mvc-shop/item/updateSills',
         data: { sillIndex: index, 
                 sillsImageSrc: imgSourceStr, 
                 sillLeft: inputLeft,

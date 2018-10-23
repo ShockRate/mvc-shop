@@ -26,10 +26,10 @@
 				 
 				  if (isset($_SESSION['Cart']) && !empty($_SESSION['Cart'])){
 				
-				  foreach ($_SESSION['Cart'] as $arr) { 
+				  foreach ($_SESSION['Cart'] as $key => $arr) { 
 				  	?>
 				  <tr id="tableEntry<?php echo $i;?>">
-				    <td><?php echo $i++;?></td>
+				    <td><?php echo $arr['Index'];?></td>
 				    <td></td>
 				    <td><?php echo $arr['Name'];?></td>
 				    <td><?php echo isset($arr['Pieces'])?$arr['Pieces']:'';?></td>
@@ -37,9 +37,11 @@
 				    <td><?php include 'divSills.php';?></td>
 				  
 				    <td class="table-cell">
-						<button class="btn myDetailsBtn">ΛΕΠΤΟΜΕΡΙΕΣ</button>
-						<?php echo $tableBuilder->_printImg($arr['Type'],$arr['Class'],$arr['dimCase1'],$arr['dimCase3'],$arr['dimCase5'],$arr['DimUp'],$arr['DimMiddle'],$arr['dimCase2'],$arr['dimCase4']);
-				    			?></td>
+						<button class="btn myDetailsBtn" onClick="location.href='<?php echo BASE_URL; ?>item/index/<?php echo $i++;?>'">ΛΕΠΤΟΜΕΡΙΕΣ</button>
+						<?php include 'divDesign.php'
+						//echo $tableBuilder->_printImg($arr['Type'],$arr['Class'],$arr['dimCase1'],$arr['dimCase3'],$arr['dimCase5'],$arr['DimUp'],$arr['DimMiddle'],$arr['dimCase2'],$arr['dimCase4']);
+				    			?>
+					</td>
 				    <td><?php echo ($arr['Width'] - $arr['SillLeft'] - $arr['SillRight']).'/<br>'.($arr['Height'] - $arr['SillUp'] - $arr['SillDown']);?></td>
 				    <td><?php echo $arr['Profile'];?></td>
 				    <td><?php echo $arr['Screens'];?></td>

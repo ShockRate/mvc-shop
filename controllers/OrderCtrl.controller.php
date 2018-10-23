@@ -43,7 +43,7 @@ class OrderCtrl extends Controller{
 
     }
 
-    public function deleteOrder(){
+    public function clearOrder(){
         unset($_SESSION['order']);
         unset($_SESSION['Cart']);
         header('Location:'.ROOT_URL.'/order');

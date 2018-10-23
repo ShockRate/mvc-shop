@@ -61,51 +61,51 @@
            
            <div class="block">
              <label>ΨΕΥΤΟΚΑΣΑ</label>
-             <select class="form-control" id="profiles" name="<?php echo $worksheet->getCellByColumnAndRow(5,'1')->getValue();?>">
-               <?php for ($row = 2; $row <= $worksheet->getHighestRow('E'); $row++) { ?>
-                 <option value="<?php echo $worksheet->getCellByColumnAndRow(5,$row)->getValue();?>"><?php echo $worksheet->getCellByColumnAndRow(5,$row)->getValue();?></option>
-               <?php } ?>
-             </select>
+             <select class="form-control" id="series" name="series" required>
+                <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('E'); $row++) { ?>
+                  <option value="<?php echo $data['excel']->getCellVal('Sheet1',5,$row);?>"><?php echo $data['excel']->getCellVal('Sheet1',5,$row);?></option>
+                <?php } ?>
+          </select>
            </div>
            
 
            <p>
            <div class="block">
              <label>ΡΟΛΑ</label>
-             <select class="form-control" id="shutters" name="<?php echo $worksheet->getCellByColumnAndRow(6,'1')->getValue();?>" onchange="showExtras(this.value)">
-               <?php for ($row = 2; $row <= $worksheet->getHighestRow('F'); $row++) { ?>
-                 <option value="<?php echo $worksheet->getCellByColumnAndRow(6,$row)->getValue();?>"><?php echo $worksheet->getCellByColumnAndRow(6,$row)->getValue();?></option>
-               <?php } ?>
-             </select>
+             <select class="form-control" id="series" name="series" required>
+                <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('F'); $row++) { ?>
+                  <option value="<?php echo $data['excel']->getCellVal('Sheet1',6,$row);?>"><?php echo $data['excel']->getCellVal('Sheet1',6,$row);?></option>
+                <?php } ?>
+          </select>
            </div>
            </p>
            <div id ="extra-parts">
             <div class="block">
               <label>ΦΙΛΑΡΑΚΙ</label>
-              <select class="form-control" id="slats" name="<?php echo $worksheet->getCellByColumnAndRow(7,'1')->getValue();?>">
-                <?php for ($row = 2; $row <= $worksheet->getHighestRow('G'); $row++) { ?>
-                  <option value="<?php echo $worksheet->getCellByColumnAndRow(7,$row)->getValue();?>"><?php echo $worksheet->getCellByColumnAndRow(7,$row)->getValue();?></option>
+              <select class="form-control" id="series" name="series" required>
+                <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('G'); $row++) { ?>
+                  <option value="<?php echo $data['excel']->getCellVal('Sheet1',7,$row);?>"><?php echo $data['excel']->getCellVal('Sheet1',7,$row);?></option>
                 <?php } ?>
-              </select>
+          </select>
             </div>
             <div class="block">
               <label>ΚΙΝΗΣΗ ΡΟΛΟΥ</label>
-              <select class="form-control" id="mechanism" name="<?php echo $worksheet->getCellByColumnAndRow(8,'1')->getValue();?>">
-                <?php for ($row = 2; $row <= $worksheet->getHighestRow('H'); $row++) { ?>
-                  <option value="<?php echo $worksheet->getCellByColumnAndRow(8,$row)->getValue();?>"><?php echo $worksheet->getCellByColumnAndRow(8,$row)->getValue();?></option>
+              <select class="form-control" id="series" name="series" required>
+                <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('H'); $row++) { ?>
+                  <option value="<?php echo $data['excel']->getCellVal('Sheet1',8,$row);?>"><?php echo $data['excel']->getCellVal('Sheet1',8,$row);?></option>
                 <?php } ?>
-              </select>
+          </select>
             </div>
           </div>
            
            <p>
            <div class="block">
              <label>ΣΙΤΑ</label>
-             <select class="form-control" id="screens" name="<?php echo $worksheet->getCellByColumnAndRow(9,'1')->getValue();?>">
-               <?php for ($row = 2; $row <= $worksheet->getHighestRow('I'); $row++) { ?>
-                 <option value="<?php echo $worksheet->getCellByColumnAndRow(9,$row)->getValue();?>"><?php echo $worksheet->getCellByColumnAndRow(9,$row)->getValue();?></option>
-               <?php } ?>
-             </select>
+             <select class="form-control" id="series" name="series" required>
+                <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('I'); $row++) { ?>
+                  <option value="<?php echo $data['excel']->getCellVal('Sheet1',9,$row);?>"><?php echo $data['excel']->getCellVal('Sheet1',9,$row);?></option>
+                <?php } ?>
+          </select>
            </div>
            </p>
                      
