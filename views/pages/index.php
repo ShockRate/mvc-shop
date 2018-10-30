@@ -13,10 +13,11 @@ print_r($data['router']->getParams());
 echo DATA.' <br>';
 //foreach ($_SESSION['Cart'] as $arr) { 
 //foreach ($data['users'] as $user) {
-foreach ($_SESSION['order'] as $order) {
+foreach ($_SESSION['Cart'] as $cart) {
     //$exampleEncoded = json_encode($arr, JSON_UNESCAPED_UNICODE);
     //echo $exampleEncoded;
-    print_r($order);
+    
+    print_r($cart['X-panelsArray']);
     echo ' <br>';
     //Decode the JSON string using json_decode.
     //$example = json_decode($exampleEncoded, true);

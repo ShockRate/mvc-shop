@@ -144,6 +144,9 @@ Class Order extends Model {
         }
     }
 
+    public function download(){
+       
+    }
     
 
     public function message(){

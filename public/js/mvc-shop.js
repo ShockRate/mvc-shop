@@ -1,5 +1,5 @@
 var HOME = '/mvc-shop';
-
+//var HOME = '/';
 function hideSection() {
     var x = document.getElementById("hideDIV");
     if (x.style.display === "none") {
@@ -420,7 +420,7 @@ function LengthConverter() {
     var inches=document.getElementById("inches-width").value; 
     var result=(feet/0.032808)+(inches/0.39370);
     document.getElementById("outputWidth").innerHTML=result.toFixed(2);
-    document.getElementById("width").value=result.toFixed(2);;
+    document.getElementById("width").value=result.toFixed(2);
 }
 
 function HeightConverter() {
@@ -429,7 +429,21 @@ function HeightConverter() {
     var inches=document.getElementById("inches-height").value; 
     var result=(feet/0.032808)+(inches/0.39370);
     document.getElementById("outputHeight").innerHTML=result.toFixed(2);
-    document.getElementById("height").value=result.toFixed(2);;
+    document.getElementById("height").value=result.toFixed(2);
+}
+function clearWidthConverter(left, right) {
+   
+    var width=document.getElementById("detailsWidth").value; 
+    var result=width-left-right;
+    document.getElementById("detailsClearWidth").value=result.toFixed(2);
+   
+}
+function clearHeightConverter(up, down) {
+   
+    var width=document.getElementById("detailsWidth").value; 
+    var result=width-up-down;
+    document.getElementById("detailsClearHeight").value=result.toFixed(2);
+   
 }
 
 function clearAlert() {
@@ -437,18 +451,6 @@ function clearAlert() {
     
 }
 
-function showExtras(aval) {
-    if (aval === "") {
-    
-    document.getElementById("extra-parts").style.display='none';
-    //Form.fileURL.focus();
-    } 
-    else{
-        document.getElementById("extra-parts").style.display='inline-block';
-        //document.getElementById("result").setAttribute("value", aval);
-   
-    }
-  }
 
   $('#createFrame').on('hide.bs.modal', function () {
     $('#createFrame').scrollTop(0);

@@ -25,7 +25,7 @@
                 </li>
                 <?php if ($admin){ ?> 
                     <li <?php echo strpos($page_title, "login")!==false ? "class='active'" : ""; ?>>
-                    <a href="<?php echo BASE_URL; ?>user">Χρήτες</a>
+                    <a href="<?php echo BASE_URL; ?>user">Χρήστες</a>
                 </li>
                 <?php } ?>
                 

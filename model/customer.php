@@ -1,12 +1,16 @@
 <?php
-Class Customer extends Model{
+Class Customer extends Model {
 
     public function getCustomers(){
         $sql = "select * from customers";
-        return $this->db->query($sql);
+        $result=mysqli_query($this->db,$sql);
+        $result->fetch_assoc();
+        $this->db->close();
+        unset($this->db);   
+      
+        return $result;
+       // return $this->db->query($sql);
     }
-
-    
 
     public function getCustomerNames(){
         $sql = "SELECT CONCAT_WS(' ',first_name,last_name) AS name FROM customers";  
@@ -16,8 +20,8 @@ Class Customer extends Model{
         while($row = $result->fetch_assoc()) {
             $name[] =$row['name'];
         }
-        $this->db->close();
-        unset($this->db);   
+        //$this->db->close();
+        //unset($this->db);   
       
         return $name;
         

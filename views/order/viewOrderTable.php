@@ -1,6 +1,6 @@
 <?php  $i = 1;
  //echo $series;
- $tableBuilder   = new tableBuilder;
+ //$tableBuilder   = new tableBuilder;
 ?>
 
 				<div class="main">
@@ -29,7 +29,7 @@
 				  foreach ($_SESSION['Cart'] as $key => $arr) { 
 				  	?>
 				  <tr id="tableEntry<?php echo $i;?>">
-				    <td><?php echo $arr['Index'];?></td>
+				    <td><?php echo $key+1;?></td>
 				    <td></td>
 				    <td><?php echo $arr['Name'];?></td>
 				    <td><?php echo isset($arr['Pieces'])?$arr['Pieces']:'';?></td>
@@ -37,10 +37,10 @@
 				    <td><?php include 'divSills.php';?></td>
 				  
 				    <td class="table-cell">
-						<button class="btn myDetailsBtn" onClick="location.href='<?php echo BASE_URL; ?>item/index/<?php echo $i++;?>'">ΛΕΠΤΟΜΕΡΙΕΣ</button>
+						<button class="btn myDetailsBtn" onClick="location.href='<?php echo BASE_URL; ?>item/index/<?php echo  $key+1;?>'">ΛΕΠΤΟΜΕΡΙΕΣ</button>
 						<?php include 'divDesign.php'
 						//echo $tableBuilder->_printImg($arr['Type'],$arr['Class'],$arr['dimCase1'],$arr['dimCase3'],$arr['dimCase5'],$arr['DimUp'],$arr['DimMiddle'],$arr['dimCase2'],$arr['dimCase4']);
-				    			?>
+				    	?>
 					</td>
 				    <td><?php echo ($arr['Width'] - $arr['SillLeft'] - $arr['SillRight']).'/<br>'.($arr['Height'] - $arr['SillUp'] - $arr['SillDown']);?></td>
 				    <td><?php echo $arr['Profile'];?></td>
@@ -69,9 +69,10 @@
 				<button type="button" class="btn btn-warning" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>			
 			</div> -->
 			<br>
-			<form method="post" action="inc/download.php">
+			
+			
 				<div style="text-align: center;">
-					<input type="submit" value="Download Excel" class="btn btn-primary" id="btn-download" name="download" >
+					<button class="btn btn-primary" id="btn-download" onClick="location.href='<?php echo BASE_URL; ?>order/download/'">Download Excel</button>
 				</div>
-			</form>
+		
 		

@@ -24,11 +24,15 @@
               <button class="tablinks" onclick="openTab(event, 'tab-feet')">Feet</button>      
             </div>
             <form method="post" action="<?php echo BASE_URL; ?>item/createitem"><!--FORM START-->
+            <div class="block">
+              <label class="input-label">TEMAXIA:</label>
+              <input type="number" name="pieces" id="pieces" value="1">
+            </div>
             <input type="hidden" name="productName" id="productName">
-            <input type="text" name="productClass" id="productClass"> 
+            <input type="hidden" name="productClass" id="productClass"> 
             <br>
-            <input type="text" name="productXPanels" id="productXPanels"> 
-            <input type="text" name="productYPanels" id="productYPanels"> 
+            <input type="hidden" name="productXPanels" id="productXPanels"> 
+            <input type="hidden" name="productYPanels" id="productYPanels"> 
             <div class="formContent">
               <div id="tab-meters" class="tabcontent">
                 <div class="block">

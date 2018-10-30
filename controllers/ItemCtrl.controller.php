@@ -13,9 +13,13 @@ class ItemCtrl extends Controller{
     public function index(){
 
         if ($_POST) {
-            $this->updateDetails($_POST); 
+            
+            $this->updateDetails($_POST, $this->params[0]); 
+           
+            
          }
         $this->data['item'] = $this->model->load($this->params[0]);
+        $this->data['index'] = $this->params[0];
     }
     
     public function createItem(){
@@ -37,10 +41,13 @@ class ItemCtrl extends Controller{
         }
     }
 
-    public function updateDetails($safePOST){
+    public function updateDetails($safePOST, $index){
        
         $safePOST = array_map('trim', filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING));
-        $this->data['err'] =  $this->model->updateItemDetails($safePOST);
+        //$this->data['MSG'] =  $this->model->updateItemDetails($safePOST, $index);
+        $this->model->updateItemDetails($safePOST, $index);
+        header('Location:'.ROOT_URL.'/item/index/'.$this->params[0]);
+        exit();
         
     }
     public function updateSills(){

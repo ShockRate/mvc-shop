@@ -37,10 +37,10 @@ class retrieveExcel{
         return $this->worksheet->getSheetByName($name)->getHighestRow();
 
     }
-
     function getCellVal($name, $col, $row){
         return $this->worksheet->getSheetByName($name)->getCellByColumnAndRow($col,$row)->getValue();
     }
+
 
 }
 ?>

@@ -36,3 +36,10 @@ function between($val, $x, $y){
     return ($val_len >= $x && $val_len <= $y)?TRUE:FALSE;
 
 }
+
+function returnNonZero($myVal){
+    if($myVal == 0)
+        return " ";
+    else return $myVal; 
+
+}

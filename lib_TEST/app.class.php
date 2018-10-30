@@ -52,7 +52,8 @@ class App{
         echo isset($_SESSION['user_id'])?'true':'false';
         isset($_SESSION['full_name']);
         
-        // //TESTING OUTPUT. DELETE AFTER ISUUE RESOLVES
+        //TESTING OUTPUT. DELETE AFTER ISUUE RESOLVES
+        /*
         echo '<br>';
         echo 'BASE_URL = '.BASE_URL;
         echo '<br>';
@@ -73,6 +74,7 @@ class App{
         echo '<br>';
         
         echo ROOT;
+        */
         //END OF OUTPUT TEST
         echo $layout_view_object->render();
         

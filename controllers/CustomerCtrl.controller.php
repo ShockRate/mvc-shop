@@ -9,7 +9,9 @@ class CustomerCtrl extends Controller{
 
     public function index(){
 
-        $this->data['customers'] = $this->model->getCustomerNames();
+        $this->data['customers_name'] = $this->model->getCustomerNames();
+       
+        $this->data['customers'] = $this->model->getCustomers();  
     }
 
     public function register(){

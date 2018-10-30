@@ -118,38 +118,6 @@
     margin-top: 5%;
    
 }    
-
-.details-container{
-	position: relative;
-	text-align: center;
-    display: flex;
-    margin: auto;
-    }
-    
-.details-dimensions{
-    width: 25%;
-    margin-top: 10%;
-    
-}
-
-.details-image{
-    width: 50%;
-    text-align: center;
-    
-}
-.details-image img{
-    max-width: 50%;
-    max-height: 50%;
- }
-
-.details-extras{
-    width: 25%;
-    margin-top: 10%;
-   
-}
-.details-text{
-    text-align: center;
-}
 #feet-width, #inches-width,#feet-height, #inches-height{
     width: 32%;
 }

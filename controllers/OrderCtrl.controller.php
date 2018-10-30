@@ -13,7 +13,7 @@ class OrderCtrl extends Controller{
             header('Location:'.ROOT_URL.'/order/createorder');
             exit();
         } else{
-            $this->data['order'] = $this->model->getOrders();  
+            $this->data['order'] = $this->model->getOrders();   
         }
              
     }
@@ -48,6 +48,10 @@ class OrderCtrl extends Controller{
         unset($_SESSION['Cart']);
         header('Location:'.ROOT_URL.'/order');
         exit();
+    }
+
+    public function download(){
+        $this->model->download();
     }
 }
 ?>
