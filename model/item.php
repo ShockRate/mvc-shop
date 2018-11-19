@@ -15,11 +15,12 @@ Class Item extends Model {
                 "ClearWidth"   => $safePOST['width']-5,
                 "ClearHeight"  => $safePOST['height']-5,
                 "Pieces"       => $safePOST['pieces'],
-                "Sills"        => ROOT_URL."/public/images/shifts/UDLR.gif",
+                "Sills"        => ROOT_URL."/images/shifts/UDLR.gif",
                 "Profile"      => "",
                 "Shutters"     => "",
                 "Slats"        => "",
                 "Mechanism"    => "",
+                "MechPos"      => "",
                 "Screens"      => "",
                 "DetailsNotes" => "",
                 "SillUp"       => "2.5",
@@ -94,6 +95,7 @@ Class Item extends Model {
         $shutters  		= $safePOST['shutters'];
         $slats  		= $safePOST['slats'];
         $mechanism  	= $safePOST['mechanism'];
+        $mechpos  	    = $safePOST['mechPos'];
         $screens   		= $safePOST['screens'];
         $profiles  		= $safePOST['profiles'];
         $detailsNotes  	= $safePOST['detailsNotes'];
@@ -112,7 +114,8 @@ Class Item extends Model {
         // ΠΕΡΝΑΜΕ ΤΙΜΕΣ ΤΩΝ DROPDOWN MENU ΣΤΟ SESSION
 		$_SESSION['Cart'][$windowIndex]['Shutters']			= $shutters;
 		$_SESSION['Cart'][$windowIndex]['Slats']			= $slats;
-		$_SESSION['Cart'][$windowIndex]['Mechanism']		= $mechanism;
+        $_SESSION['Cart'][$windowIndex]['Mechanism']		= $mechanism;
+        $_SESSION['Cart'][$windowIndex]['MechPos']		    = $mechpos;
 		$_SESSION['Cart'][$windowIndex]['Screens']  		= $screens;
 		$_SESSION['Cart'][$windowIndex]['Profile']  		= $profiles;
 		$_SESSION['Cart'][$windowIndex]['DetailsNotes'] 	= $detailsNotes;

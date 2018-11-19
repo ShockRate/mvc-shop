@@ -11,6 +11,8 @@ define('ADMIN_EMAIL','s_tottas@epal.gr');
 
 define('TYPES', ROOT.DS.'data'.DS.'types.xlsx');
 define('DATA', ROOT.DS.'data'.DS.'data.xlsx');
+define('PRINT_SHEET', ROOT.DS.'data'.DS.'3_Prototype.xlsx');
+
 
 define('VIEWS_PATH', ROOT.DS.'views');
 

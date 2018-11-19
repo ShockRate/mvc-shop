@@ -39,8 +39,8 @@
 		?></span>
 	</div>
 	<div style="text-align: center;">
-		<button type="button" onClick="location.href='<?php echo ROOT_URL;?>/order/clearOrder'"class="btn btn-danger" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>
-		<button type="button" onClick="location.href='<?php echo ROOT_URL;?>/order/saveOrder'"class="btn btn-warning" id="clearTable">ΑΠΟΘΗΚΕΥΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>				
+		<button type="button" onClick="location.href='<?php echo ROOT_URL;?>/order/clearorder'"class="btn btn-danger" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>
+		<button type="button" onClick="location.href='<?php echo ROOT_URL;?>/order/saveorder'"class="btn btn-warning" id="clearTable">ΑΠΟΘΗΚΕΥΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button>				
 		<!-- <button type="button" class="btn btn-warning" id="clearTable">ΕΚΑΘΑΡΙΣΗ ΠΑΡΑΓΓΕΛΙΑΣ</button> -->
 	</div>
 </div>

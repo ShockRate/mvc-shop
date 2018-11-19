@@ -116,28 +116,42 @@ $data['excel'] = new retrieveExcel(DATA);
               </select>
             </div>
             </p>
-            <p>
-            <div class="block">
-              <label>ΚΙΝΗΣΗ ΡΟΛΟΥ</label>
-              <select class="form-control" id="mechanism" name="mechanism">
-                <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('H'); $row++) { ?>
-                  <option value="<?=$data['excel']->getCellVal('Sheet1',8,$row);?>"
-                          <?php echo $retVal = ($data['excel']->getCellVal('Sheet1',8,$row) == $data['item']['Mechanism']) ? 'selected' : '' ;?>>
-                              <?=$data['excel']->getCellVal('Sheet1',8,$row);?>
-                  </option>
-                <?php } ?>
-              </select>
-            </div>
-            </p>
-            
+            <div style="display: flex"> <!--Div for mechanism-->
+              <p>
+              <div class="block">
+                <label>ΚΙΝΗΣΗ ΡΟΛΟΥ</label>
+                <select class="form-control" id="mechanism" name="mechanism">
+                  <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('H'); $row++) { ?>
+                    <option value="<?=$data['excel']->getCellVal('Sheet1',8,$row);?>"
+                            <?php echo $retVal = ($data['excel']->getCellVal('Sheet1',8,$row) == $data['item']['Mechanism']) ? 'selected' : '' ;?>>
+                                <?=$data['excel']->getCellVal('Sheet1',8,$row);?>
+                    </option>
+                  <?php } ?>
+                </select>
+              </div>
+              </p>
+              <p>
+              <div class="block">
+                <label>ΘΕΣΗ</label>
+                <select class="form-control" id="mechPos" name="mechPos">
+                  <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('I'); $row++) { ?>
+                    <option value="<?=$data['excel']->getCellVal('Sheet1',9,$row);?>"
+                            <?php echo $retVal = ($data['excel']->getCellVal('Sheet1',9,$row) == $data['item']['MechPos']) ? 'selected' : '' ;?>>
+                                <?=$data['excel']->getCellVal('Sheet1',9,$row);?>
+                    </option>
+                  <?php } ?>
+                </select>
+              </div>
+              </p>
+            </div><!--end of Div for mechanism-->
             <p>
             <div class="block">
               <label>ΣΙΤΑ</label>
               <select class="form-control" id="screens" name="screens" value=<?=$data['item']['Screens']?>>
-                  <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('I'); $row++) { ?>
-                    <option value="<?=$data['excel']->getCellVal('Sheet1',9,$row);?>"
-                            <?php echo $retVal = ($data['excel']->getCellVal('Sheet1',9,$row) == $data['item']['Screens']) ? 'selected' : '' ;?>>
-                                <?=$data['excel']->getCellVal('Sheet1',9,$row);?>
+                  <?php for ($row = 2; $row <= $data['excel']->getColumnHighestRow('J'); $row++) { ?>
+                    <option value="<?=$data['excel']->getCellVal('Sheet1',10,$row);?>"
+                            <?php echo $retVal = ($data['excel']->getCellVal('Sheet1',10,$row) == $data['item']['Screens']) ? 'selected' : '' ;?>>
+                                <?=$data['excel']->getCellVal('Sheet1',10,$row);?>
                     </option>
                   <?php } ?>
               </select>

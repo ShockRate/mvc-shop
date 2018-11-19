@@ -34,7 +34,9 @@
 				    <td><?php echo $arr['Name'];?></td>
 				    <td><?php echo isset($arr['Pieces'])?$arr['Pieces']:'';?></td>
 				    <td><?php echo $arr['Width'].'/<br>'.$arr['Height'];?></td>
-				    <td><?php include 'divSills.php';?></td>
+					<td><?php include 'divSills.php';
+						echo '.'.substr($arr['Sills'],strlen(ROOT_URL));
+					?></td>
 				  
 				    <td class="table-cell">
 						<button class="btn myDetailsBtn" onClick="location.href='<?php echo BASE_URL; ?>item/index/<?php echo  $key+1;?>'">ΛΕΠΤΟΜΕΡΙΕΣ</button>
@@ -46,9 +48,12 @@
 				    <td><?php echo $arr['Profile'];?></td>
 				    <td><?php echo $arr['Screens'];?></td>
 					<td>
+						
 						<?php echo $arr['Shutters'].'<br>';?>
 						<?php echo $arr['Slats'].'<br>';?>
 						<?php echo $arr['Mechanism'].'<br>';?>
+						<?php echo $arr['MechPos'].'<br>';?>
+						
 					</td>
 				    <td></td>
 				    <td><?php echo $arr['DetailsNotes'];?></td>
@@ -73,6 +78,9 @@
 			
 				<div style="text-align: center;">
 					<button class="btn btn-primary" id="btn-download" onClick="location.href='<?php echo BASE_URL; ?>order/download/'">Download Excel</button>
+				</div>
+				<div style="text-align: center;">
+					<button class="btn btn-primary" id="btn-download2" onClick="location.href='<?php echo BASE_URL; ?>order/download2/'">test Download Excel</button>
 				</div>
 		
 		

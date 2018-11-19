@@ -145,9 +145,54 @@ Class Order extends Model {
     }
 
     public function download(){
-       
+       $sheet = new retrieveExcel(PRINT_SHEET);
+       $order = $sheet->activeSheet();
+       $index 	= 5;
+       $pushval = 5;
+       $counter = 1;
+       for ($i=0; $i < (sizeof($_SESSION['Cart'])-1); $i++) {   
+            $sheet->pushRows(5, 3+$pushval, 3, 24);
+            $pushval = $pushval +3;
+        }
+        foreach ($_SESSION['Cart'] as $arr) { 
+            $order->setCellValue('A'.$index, $counter);
+            $counter++;
+            $order->setCellValue('C'.$index , $arr['Name'])->getStyle('J'.$index)->getFont()->setBold(true);
+            //$order->getActiveSheet()->setCellValue('J'.$index , $arr['Type'])->getStyle('J'.$index)->getFont()->setBold(true);
+            $order->setCellValue('G'.$index, $arr['Width'].' '."\r\n".' '.$arr['Height'] );
+            $order->setCellValue('K'.$index, $arr['ClearWidth'].' '."\r\n".' '.$arr['ClearHeight'] );
+            $order->setCellValue('Q'.$index , $arr['Profile']);
+            $order->setCellValue('T'.($index+1) , $arr['Shutters']);
+            $order->setCellValue('Q'.($index+1) , $arr['Screens']);
+            //ADD PRODUCT IMAGE AND DIMENSIONS
+            $sheet->addImage($arr['X-panels'],'../public/images/'.$arr['Type'].'.jpg',$arr['Type'].'jpg','M'.$index,$sheet->ActiveSheet());
+            
+            //Add siils
+            
+            //$order->addSillImage(''.$arr['Sills'],$arr['Sills'],'I'.($index+1),$order->ActiveSheet());
+            $sheet->addSillImage('../public'.substr($arr['Sills'],strlen(ROOT_URL)),$arr['Sills'],'I'.($index+1),$sheet->ActiveSheet());
+            $order->setCellValue('I'.$index , $arr['SillUp']);
+            $order->setCellValue('I'.($index+2) , $arr['SillDown']);
+            $order->setCellValue('H'.($index+1) , $arr['SillLeft']);
+            $order->setCellValue('J'.($index+1) , $arr['SillRight']);
+            //Details 
+            $order->setCellValue('W'.($index) , $arr['Slats']."\n".$arr['Mechanism']."\n".$arr['DetailsNotes']);
+            $index=$index+3;
+            if ($counter % 5 == 0 && $counter <7){
+                $order->setBreak('A'.($index+2), \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::BREAK_ROW);
+                }elseif(($counter-5)%7 ==0){
+                    $order->setBreak('A'.($index+2), \PhpOffice\PhpSpreadsheet\Worksheet\Worksheet::BREAK_ROW);
+                }
+            
+        }
+        return $sheet->getSheet();
+        	
     }
-    
+    public function download2($sheet){
+        //$sheet = new retrieveExcel(PRINT_SHEET);
+        //return $sheet->getSheet();
+        return $sheet;
+    }
 
     public function message(){
         return 'SUCCESSFULY CREATED';

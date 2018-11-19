@@ -14,7 +14,9 @@ class retrieveExcel{
         $reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $this->worksheet = $reader->load($fileName);  
     }
-
+    function getSheet(){
+        return $this->worksheet;
+    }
     function activeSheet(){
         return $this->worksheet->getActiveSheet();
     }
@@ -39,12 +41,14 @@ class retrieveExcel{
     function getCellVal($name, $col, $row){
         return $this->worksheet->getSheetByName($name)->getCellByColumnAndRow($col,$row)->getValue();
     }
-
+    function setCellValue($cell, $value){
+        $this->activeSheet()->setCellValue($cell, $value);
+    }
     /*
     Function responsible for copying the cells modifications from the “Prototype” file as many time as the items in order
     */
     function pushRows($srcRow,$dstRow,$height,$width) {
-        $sheet = $this->worksheet;
+        $sheet = $this->activeSheet();
         for ($row = 0; $row < $height; $row++) {
                for ($col = 0; $col < $width; $col++) {
                 $cell = $sheet->getCellByColumnAndRow($col, $srcRow + $row);
@@ -74,7 +78,10 @@ class retrieveExcel{
     }
 
     function imageWidth($panels){
-        return ($panels*35)+25;
+       
+        //$width = (($panels*35)+25<166) ? ($panels*35)+25 : 165 ;
+        $width = (($panels*40)+25<186) ? ($panels*40)+25 : 185 ;
+        return $width;
     }
     //ADDS PRODUCT IMAGE TO EXCEL 
     public function addImage($panels,$path,$name,$coordinates,$sheet){
@@ -86,7 +93,7 @@ class retrieveExcel{
         $drawing->setOffsetY(10);
         $drawing->setResizeProportional(false);
         $drawing->setHeight(100);
-        $drawing->setWidth($this->productWIdth($panels));
+        $drawing->setWidth($this->imageWidth($panels));
         $drawing->setWorksheet($sheet);
     }
     //ADDS SILLS IMAGE TO EXCEL

@@ -49,14 +49,15 @@ class App{
         $layout_view_path = VIEWS_PATH.DS.$layout.'.php';
         $layout_view_object = new View(compact('content','auth'), $layout_view_path);
 
-        echo isset($_SESSION['user_id'])?'true':'false';
-        isset($_SESSION['full_name']);
+        //echo isset($_SESSION['user_id'])?'true':'false';
+        
         
         //TESTING OUTPUT. DELETE AFTER ISUUE RESOLVES
         /*
         echo '<br>';
         echo 'BASE_URL = '.BASE_URL;
         echo '<br>';
+        
         echo 'ROOT_URL = '.ROOT_URL;
         echo '<br>';
         echo 'ROOT_URL MANUAL = '.substr($_SERVER['PHP_SELF'], 0, - (strlen('/public/index.php')));
